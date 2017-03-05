@@ -21,6 +21,7 @@ namespace CineFy.Pages
             InitializeComponent();
             BindingContext = new MainPageViewModel();
         }
+
     }
 
     class MainPageViewModel : INotifyPropertyChanged

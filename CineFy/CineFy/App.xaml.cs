@@ -13,7 +13,7 @@ namespace CineFy
         {
             InitializeComponent();
 
-            MainPage = new CineFy.Pages.MainPage();
+            MainPage = new NavigationPage(new CineFy.Pages.MainPage());
         }
 
         protected override void OnStart()
