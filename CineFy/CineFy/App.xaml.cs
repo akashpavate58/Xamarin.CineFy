@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using CineFy.Pages;
 using Xamarin.Forms;
 
 namespace CineFy
@@ -13,7 +13,7 @@ namespace CineFy
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new CineFy.Pages.MainPage());
+            MainPage = new NavigationPage(new GeoCoderPage());
         }
 
         protected override void OnStart()
