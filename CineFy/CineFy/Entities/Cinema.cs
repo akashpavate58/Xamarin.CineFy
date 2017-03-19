@@ -7,75 +7,83 @@ using Newtonsoft.Json;
 
 namespace CineFy.Entities
 {
+    public class CinemasViewModel
+    {
+        [JsonProperty("cinemas")]
+        public List<Cinema> Cinemas { get; set; }
+    }
+
     public class Cinema
     {
-        [JsonProperty(propertyName: "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty(propertyName: "slug")]
+        [JsonProperty("slug")]
         public string Slug { get; set; }
 
-        [JsonProperty(propertyName: "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty(propertyName: "chain_id")]
+        [JsonProperty("chain_id")]
         public string ChainId { get; set; }
 
-        [JsonProperty(propertyName: "telephone")]
+        [JsonProperty("telephone")]
         public string Telephone { get; set; }
 
-        [JsonProperty(propertyName: "Email")]
+        [JsonProperty("email")]
         public string Email { get; set; }
 
-        [JsonProperty(propertyName: "website")]
+        [JsonProperty("website")]
         public string Website { get; set; }
 
-        [JsonProperty(propertyName: "booking_type")]
-        public string BookingType { get; set; }
 
-        [JsonProperty(propertyName: "location")]
+        [JsonProperty("location")]
         public Location Location { get; set; }
+
+
+        [JsonProperty("booking_type")]
+        public string BookingType { get; set; }
     }
 
     public class Location
     {
-        [JsonProperty(propertyName: "lat")]
+        [JsonProperty("lat")]
         public double Latitude { get; set; }
 
-        [JsonProperty(propertyName: "lon")]
+        [JsonProperty("lon")]
         public double Longitude { get; set; }
 
-        [JsonProperty(propertyName: "address")]
-        public string Address { get; set; }
+        [JsonProperty("address")]
+        public Address Address { get; set; }
     }
 
     public class Address
     {
-        [JsonProperty(propertyName: "display_text")]
+        [JsonProperty("display_text")]
         public string DisplayText { get; set; }
 
-        [JsonProperty(propertyName: "street")]
+        [JsonProperty("street")]
         public string Street { get; set; }
 
-        [JsonProperty(propertyName: "house")]
+        [JsonProperty("house")]
         public string House { get; set; }
 
-        [JsonProperty(propertyName: "zipcode")]
+        [JsonProperty("zipcode")]
         public string ZipCode { get; set; }
 
-        [JsonProperty(propertyName: "city")]
+        [JsonProperty("city")]
         public string City { get; set; }
 
-        [JsonProperty(propertyName: "state")]
+        [JsonProperty("state")]
         public string State { get; set; }
 
-        [JsonProperty(propertyName: "state_abbr")]
+        [JsonProperty("state_abbr")]
         public string StateAbbreviation { get; set; }
 
-        [JsonProperty(propertyName: "country")]
+        [JsonProperty("country")]
         public string Country { get; set; }
 
-        [JsonProperty(propertyName: "country_code")]
+        [JsonProperty("country_code")]
         public string CountryCode { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace CineFy
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new GeoCoderPage());
+            MainPage = new NavigationPage(new CinemasPage());
         }
 
         protected override void OnStart()

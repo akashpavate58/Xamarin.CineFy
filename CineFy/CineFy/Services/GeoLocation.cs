@@ -12,19 +12,12 @@ namespace CineFy.Services
     {
         public static async Task<Position> GetCurrentLocation()
         {
-            try
-            {
-                var locator = CrossGeolocator.Current;
-                locator.DesiredAccuracy = 50;
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 50;
 
-                var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
-                
-                return position;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
+
+            return position;
         }
     }
 }

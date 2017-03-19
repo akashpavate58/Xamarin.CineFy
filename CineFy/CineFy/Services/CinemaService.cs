@@ -13,14 +13,21 @@ namespace CineFy.Services
     {
         private const string URL = "https://api.internationalshowtimes.com/v4";
 
-        public IEnumerable<Cinema> GetCinemas(double latitude, double longitude)
+        public async Task<IEnumerable<Cinema>> GetCinemas(double latitude, double longitude, int radius)
         {
-            return new List<Cinema>()
+
+            using (HttpClient client = new HttpClient())
             {
-                new Cinema { Id = "123", Name = "AMC"},
-                new Cinema { Id = "456", Name = "FTC"},
-                new Cinema { Id = "789", Name = "INOX"}
-            };
+                client.DefaultRequestHeaders.Add("Authorization", "Token token=cvudNN9dpN7WQzpuf1uW6GpiWO4UDx8M");
+
+                string url = URL + $"/cinemas/?location={latitude},{longitude}&distance={radius}";
+
+                var response = await client.GetStringAsync(url);
+
+                var cinemasViewModel = JsonConvert.DeserializeObject<CinemasViewModel>(response);
+
+                return cinemasViewModel.Cinemas;
+            }
         }
     }
 }
