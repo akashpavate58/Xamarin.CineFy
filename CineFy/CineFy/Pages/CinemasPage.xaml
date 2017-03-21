@@ -5,15 +5,25 @@
              x:Class="CineFy.Pages.CinemasPage">
 
     <StackLayout>
-        <StackLayout Orientation="Horizontal">
+        <!--<StackLayout Orientation="Horizontal">
             <Button Text="Add" />
             <Button Text="Update" HorizontalOptions="CenterAndExpand" />
             <Button Text="Delete" />
-        </StackLayout>
-        <ListView x:Name="cinemasListView">
+        </StackLayout>-->
+        <ListView x:Name="cinemasListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" />
+                    <!--<TextCell Text="{Binding Name}" />-->
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="http://lorempixel.com/200/200/sports"></Image>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Name}"></Label>
+                                <Label Text="{Binding Website}"></Label>
+                            </StackLayout>
+                            <Button Text="Info"></Button>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

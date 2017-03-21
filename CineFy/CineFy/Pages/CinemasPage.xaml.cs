@@ -41,5 +41,10 @@ namespace CineFy.Pages
             }
             
         }
+
+        private void CinemasListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            cinemasListView.SelectedItem = null;
+        }
     }
 }
