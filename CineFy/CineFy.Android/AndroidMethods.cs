@@ -21,5 +21,6 @@ namespace CineFy.Droid
         {
             Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
         }
+
     }
 }

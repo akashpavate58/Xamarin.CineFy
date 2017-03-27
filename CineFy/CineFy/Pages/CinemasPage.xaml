@@ -2,26 +2,24 @@
 <ContentPage Title="Cinemas"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CineFy.Pages.CinemasPage">
+             x:Class="CineFy.Pages.CinemasPage"
+             x:Name="Page">
 
     <StackLayout>
-        <!--<StackLayout Orientation="Horizontal">
-            <Button Text="Add" />
-            <Button Text="Update" HorizontalOptions="CenterAndExpand" />
-            <Button Text="Delete" />
-        </StackLayout>-->
+
         <ListView x:Name="cinemasListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <!--<TextCell Text="{Binding Name}" />-->
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="5">
-                            <Image Source="http://lorempixel.com/200/200/sports"></Image>
-                            <StackLayout HorizontalOptions="StartAndExpand">
-                                <Label Text="{Binding Name}"></Label>
-                                <Label Text="{Binding Website}"></Label>
-                            </StackLayout>
-                            <Button Text="Info"></Button>
+                            <Image Source="http://seeklogo.com/images/R/rolo-pelicula-cinema-logo-F4B8380CD3-seeklogo.com.gif"></Image>
+                            <Label Text="{Binding Name}" FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Label>
+                            <Image Source="phone.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference Page}, Path=BindingContext.OnCallButtonTapped}"
+                                                          CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
