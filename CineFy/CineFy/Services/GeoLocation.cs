@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 
 namespace CineFy.Services
 {
@@ -18,6 +20,7 @@ namespace CineFy.Services
             var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
 
             return position;
+
         }
     }
 }

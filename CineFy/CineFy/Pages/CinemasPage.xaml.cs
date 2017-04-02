@@ -8,6 +8,8 @@ using System.Windows.Input;
 using CineFy.Entities;
 using CineFy.Services;
 using Plugin.Geolocator.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,7 +32,6 @@ namespace CineFy.Pages
 
         private void OnLoad()
         {
-            
             RefreshCinemas();
         }
 
