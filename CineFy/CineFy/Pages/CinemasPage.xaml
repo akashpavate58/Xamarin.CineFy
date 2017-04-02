@@ -2,17 +2,29 @@
 <ContentPage Title="Cinemas"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CineFy.MarkupExtensions"
              x:Class="CineFy.Pages.CinemasPage"
              x:Name="Page">
 
     <StackLayout>
+
+        <Label Text="{Binding Source={x:Reference Slider}, Path=Value, StringFormat='{0:N0} mi'}" HorizontalTextAlignment="Center"></Label>
+        
+        <StackLayout Orientation="Horizontal">
+            <Slider x:Name="Slider"
+                Minimum="0" Maximum="50" Value="20" HorizontalOptions="FillAndExpand"></Slider>
+            <Button Text="Apply" Clicked="ApplyFilter_OnClicked"></Button>
+        </StackLayout>
+
+
 
         <ListView x:Name="cinemasListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected" ItemTapped="CinemasListView_OnItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="5">
-                            <Image Source="http://seeklogo.com/images/R/rolo-pelicula-cinema-logo-F4B8380CD3-seeklogo.com.gif"></Image>
+                            <Image  Source="{local:EmbeddedImage CineFy.Images.cinema.png}"
+                                    WidthRequest="100" HeightRequest="100" Aspect="AspectFit"></Image>
                             <Label Text="{Binding Name}" FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Label>
                             <Image Source="phone.png">
                                 <Image.GestureRecognizers>
@@ -24,6 +36,7 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            
         </ListView>
     </StackLayout>
 

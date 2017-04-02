@@ -25,15 +25,16 @@ namespace CineFy.Pages
             InitializeComponent();
             Cinema = cinema;
             BindingContext = this;
+
+            OnLoad();
         }
 
-        protected async override void OnAppearing()
+        private async void OnLoad()
         {
-            base.OnAppearing();
             try
             {
                 var movies = await Service.GetMoviesByCinemaId(Cinema.Id);
-                MovieList = new ObservableCollection<Movie>(movies);
+                MovieList = new ObservableCollection<Movie>(movies.Where(m => m.Title != null));
                 moviesListView.ItemsSource = MovieList;
                 var c = MovieList[0].PosterImageThumbnail;
             }

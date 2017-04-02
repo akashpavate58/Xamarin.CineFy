@@ -28,21 +28,20 @@ namespace CineFy.Pages
             OnLoad();
         }
 
-        //protected override async void OnAppearing()
-        //{
-        //    base.OnAppearing();
-
+        private void OnLoad()
+        {
             
-            
-        //}
+            RefreshCinemas();
+        }
 
-        private async void OnLoad()
+        private async void RefreshCinemas()
         {
             try
             {
+                cinemasListView.IsRefreshing = true;
                 var position = await GeoLocation.GetCurrentLocation();
-                var cinemas = await Service.GetCinemas(position.Latitude, position.Longitude, 20);
-                CinemaList = new ObservableCollection<Cinema>(cinemas);
+                var cinemas = await Service.GetCinemas(position.Latitude, position.Longitude, (int) Slider.Value);
+                CinemaList = new ObservableCollection<Cinema>(cinemas.Where(c => c.Name != null));
                 cinemasListView.ItemsSource = CinemaList;
 
             }
@@ -56,8 +55,11 @@ namespace CineFy.Pages
                 await DisplayAlert("Error", $"{E} - {E.Message}", "Exit");
                 AppControls.CloseApp();
             }
+            finally
+            {
+                cinemasListView.IsRefreshing = false;
+            }
         }
-
 
         private void CinemasListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -80,6 +82,11 @@ namespace CineFy.Pages
         {
             Cinema c = (Cinema) e.Item;
             await Navigation.PushAsync(new MoviesPage(c));
+        }
+
+        private void ApplyFilter_OnClicked(object sender, EventArgs e)
+        {
+            RefreshCinemas();
         }
     }
 }
