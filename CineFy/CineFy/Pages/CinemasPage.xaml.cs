@@ -24,12 +24,20 @@ namespace CineFy.Pages
         {
             InitializeComponent();
             BindingContext = this;
+
+            OnLoad();
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
 
+            
+            
+        //}
+
+        private async void OnLoad()
+        {
             try
             {
                 var position = await GeoLocation.GetCurrentLocation();
@@ -48,20 +56,14 @@ namespace CineFy.Pages
                 await DisplayAlert("Error", $"{E} - {E.Message}", "Exit");
                 AppControls.CloseApp();
             }
-            
         }
+
 
         private void CinemasListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             cinemasListView.SelectedItem = null;
         }
-
-        //private void CallButton_OnTapped(object sender, EventArgs e)
-        //{
-            
-        //    Device.OpenUri(new Uri("tel:+13133988222"));
-        //}
-
+        
         public ICommand OnCallButtonTapped
         {
             get
@@ -72,6 +74,12 @@ namespace CineFy.Pages
                     }
                 );
             }
+        }
+
+        private async void CinemasListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Cinema c = (Cinema) e.Item;
+            await Navigation.PushAsync(new MoviesPage(c));
         }
     }
 }

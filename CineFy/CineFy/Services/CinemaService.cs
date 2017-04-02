@@ -29,5 +29,22 @@ namespace CineFy.Services
                 return cinemasViewModel.Cinemas;
             }
         }
+
+        public async Task<IEnumerable<Movie>> GetMoviesByCinemaId(string CinemaId)
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", "Token token=cvudNN9dpN7WQzpuf1uW6GpiWO4UDx8M");
+
+                string url = URL + $"/movies/?cinema_id={CinemaId}&all_fields=true";
+
+                var response = await client.GetStringAsync(url);
+
+                var moviesViewModel = JsonConvert.DeserializeObject<MoviesViewModel>(response);
+
+                return moviesViewModel.Movies;
+            }
+        }
     }
 }

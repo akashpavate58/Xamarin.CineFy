@@ -7,7 +7,7 @@
 
     <StackLayout>
 
-        <ListView x:Name="cinemasListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected">
+        <ListView x:Name="cinemasListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected" ItemTapped="CinemasListView_OnItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
