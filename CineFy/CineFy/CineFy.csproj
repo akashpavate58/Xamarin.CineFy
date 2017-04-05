@@ -41,6 +41,7 @@
     <Compile Include="Contracts\IAndroidMethods.cs" />
     <Compile Include="Entities\Cinema.cs" />
     <Compile Include="Entities\Movie.cs" />
+    <Compile Include="Entities\Showtimes.cs" />
     <Compile Include="MarkupExtensions\EmbeddedImage.cs" />
     <Compile Include="Pages\CinemasPage.xaml.cs">
       <DependentUpon>CinemasPage.xaml</DependentUpon>
@@ -53,6 +54,9 @@
     </Compile>
     <Compile Include="Pages\MoviesPage.xaml.cs">
       <DependentUpon>MoviesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShowtimesPage.xaml.cs">
+      <DependentUpon>ShowtimesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppControls.cs" />
@@ -73,8 +77,8 @@
     <Reference Include="Mono.Android">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v6.0\Mono.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Geolocator, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -148,6 +152,15 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\cinema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ShowtimesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\ThreeD.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

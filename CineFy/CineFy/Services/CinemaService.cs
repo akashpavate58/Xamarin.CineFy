@@ -46,5 +46,22 @@ namespace CineFy.Services
                 return moviesViewModel.Movies;
             }
         }
+
+        public async Task<IEnumerable<Showtime>> GetShowtimes(string CinemaId, string MovieId)
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", "Token token=cvudNN9dpN7WQzpuf1uW6GpiWO4UDx8M");
+
+                string url = URL + $"/showtimes/?cinema_id={CinemaId}&movie_id={MovieId}";
+
+                var response = await client.GetStringAsync(url);
+
+                var showtimesViewModel = JsonConvert.DeserializeObject<ShowtimesViewModel>(response);
+
+                return showtimesViewModel.Showtimes;
+            }
+        }
     }
 }

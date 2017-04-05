@@ -12,18 +12,21 @@ using Xamarin.Forms.Xaml;
 namespace CineFy.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MoviesPage : ContentPage
+    public partial class ShowtimesPage : ContentPage
     {
         private Cinema Cinema { get; set; }
+        private Movie Movie { get; set; }
 
-        private ObservableCollection<Movie> MovieList;
+        private ObservableCollection<Showtime> ShowtimesList;
 
         private CinemaService Service = new CinemaService();
 
-        public MoviesPage(Cinema cinema)
+        public ShowtimesPage(Cinema cinema, Movie movie)
         {
             InitializeComponent();
             Cinema = cinema;
+            Movie = movie;
+
             BindingContext = this;
 
             OnLoad();
@@ -33,10 +36,11 @@ namespace CineFy.Pages
         {
             try
             {
-                moviesListView.IsRefreshing = true;
-                var movies = await Service.GetMoviesByCinemaId(Cinema.Id);
-                MovieList = new ObservableCollection<Movie>(movies.Where(m => m.Title != null));
-                moviesListView.ItemsSource = MovieList;
+                showtimesListView.IsRefreshing = true;
+                var showtimes = await Service.GetShowtimes(Cinema.Id, Movie.Id);
+
+                ShowtimesList = new ObservableCollection<Showtime>(showtimes);
+                showtimesListView.ItemsSource = ShowtimesList;
 
             }
             catch (Exception E)
@@ -46,19 +50,13 @@ namespace CineFy.Pages
             }
             finally
             {
-                moviesListView.IsRefreshing = false;
+                showtimesListView.IsRefreshing = false;
             }
         }
 
-        private void CinemasListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void ShowtimeListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            moviesListView.SelectedItem = null;
-        }
-
-        private void MoviesListView_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            Movie movie = (Movie) e.Item;
-            Navigation.PushAsync(new ShowtimesPage(Cinema, movie));
+            showtimesListView.SelectedItem = null;
         }
 
         protected override bool OnBackButtonPressed()

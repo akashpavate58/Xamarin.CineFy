@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Showtimes"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CineFy.MarkupExtensions;assembly=CineFy"
+             x:Class="CineFy.Pages.ShowtimesPage"
+             x:Name="Page">
+
+    <ListView x:Name="showtimesListView" HasUnevenRows="True" ItemSelected="ShowtimeListView_OnItemSelected" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="5">
+
+
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding StartAt}" FontSize="18"></Label>
+                            <Label Text="{Binding Language}" FontSize="15"></Label>
+                        </StackLayout>
+
+                        <Image Source="{local:EmbeddedImage CineFy.Images.ThreeD.png}"
+                               IsVisible="{Binding Is3D}"
+                               WidthRequest="30" HeightRequest="30" Aspect="AspectFit"></Image>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

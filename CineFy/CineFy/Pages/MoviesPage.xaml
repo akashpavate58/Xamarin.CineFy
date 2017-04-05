@@ -5,21 +5,18 @@
              x:Class="CineFy.Pages.MoviesPage"
              x:Name="Page">
 
-    <StackLayout>
-
-        <ListView x:Name="moviesListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="5">
-                            <Image Source="{Binding PosterImageThumbnail }"
+    <ListView x:Name="moviesListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected" ItemTapped="MoviesListView_OnItemTapped" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="5">
+                        <Image Source="{Binding PosterImageThumbnail }"
                                    WidthRequest="100" HeightRequest="100" Aspect="AspectFit"></Image>
-                            <Label Text="{Binding Title}" FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Label>
-                            
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                        <Label Text="{Binding Title}" FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Label>
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
