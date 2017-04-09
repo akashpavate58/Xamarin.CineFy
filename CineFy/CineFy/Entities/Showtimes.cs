@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,22 @@ namespace CineFy.Entities
 
     public class Showtime
     {
+        public string StartTime {
+            get
+            {
+                return $"Date: {StartAt_AsDateTime.ToString("dd-MM-yyy  @  hh:mm tt")}";
+            }
+        }
+
+        public DateTime StartAt_AsDateTime
+        {
+            get
+            {
+                //2017-04-08T21:30:00-04:00
+                return DateTime.ParseExact(StartAt, "yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
+            }
+        }
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -45,5 +62,18 @@ namespace CineFy.Entities
         [JsonProperty("booking_link")]
         public string BookingLink { get; set; }
 
+    }
+
+    class ShowtimeComparer : IComparer<Showtime>
+    {
+        public int Compare(Showtime x, Showtime y)
+        {
+            if (x.StartAt_AsDateTime > y.StartAt_AsDateTime)
+                return 1;
+            else if (x.StartAt_AsDateTime < y.StartAt_AsDateTime)
+                return -1;
+            else
+                return 0;
+        }
     }
 }

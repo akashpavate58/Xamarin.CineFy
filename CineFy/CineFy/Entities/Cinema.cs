@@ -55,6 +55,11 @@ namespace CineFy.Entities
 
         [JsonProperty("address")]
         public Address Address { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Latitude}, {Longitude}";
+        }
     }
 
     public class Address

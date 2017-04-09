@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Cinema Information"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:markupExtensions="clr-namespace:CineFy.MarkupExtensions;assembly=CineFy"
+             x:Class="CineFy.Pages.CinemaInfoPage"
+             x:Name="Page">
+    <StackLayout>
+        
+        <Label Text="{Binding Cinema.Name, StringFormat='{0}'}"
+           FontSize="30" HorizontalOptions="Center" TextColor="Maroon"></Label>
+
+        <Label></Label>
+        
+        <Image Source="{markupExtensions:EmbeddedImage CineFy.Images.pin.png}"
+               HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" Aspect="AspectFit">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Navigate_OnTapped">
+                </TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Label Text="Address: " FontSize="25"></Label>
+        <Label Text="{Binding Cinema.Location.Address.DisplayText, StringFormat='{0}'}"
+           FontSize="25" HorizontalOptions="Center"></Label>
+
+        <Label></Label>
+        <Image Source="{markupExtensions:EmbeddedImage CineFy.Images.globe.png}"
+               HorizontalOptions="Center" WidthRequest="60" HeightRequest="60" Aspect="AspectFit">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Globe_OnTapped">
+                </TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Text="Website" HorizontalOptions="Center" FontSize="20"></Label>
+    </StackLayout>
+    
+
+</ContentPage>

@@ -78,7 +78,17 @@ namespace CineFy.Pages
                 );
             }
         }
-
+        public ICommand OnInfoButtonTapped
+        {
+            get
+            {
+                return new Command<Cinema>(cinema =>
+                    {
+                        Navigation.PushAsync(new CinemaInfoPage(cinema));
+                    }
+                );
+            }
+        }
         private async void CinemasListView_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             Cinema c = (Cinema) e.Item;

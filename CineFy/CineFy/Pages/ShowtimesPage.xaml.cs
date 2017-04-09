@@ -38,8 +38,12 @@ namespace CineFy.Pages
             {
                 showtimesListView.IsRefreshing = true;
                 var showtimes = await Service.GetShowtimes(Cinema.Id, Movie.Id);
+                var data = showtimes.ToArray();
 
-                ShowtimesList = new ObservableCollection<Showtime>(showtimes);
+                Array.Sort(data, new ShowtimeComparer());
+
+                ShowtimesList = new ObservableCollection<Showtime>(data);
+                
                 showtimesListView.ItemsSource = ShowtimesList;
 
             }
@@ -66,3 +70,4 @@ namespace CineFy.Pages
         }
     }
 }
+

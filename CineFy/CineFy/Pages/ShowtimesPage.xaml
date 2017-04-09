@@ -14,8 +14,8 @@
 
 
                         <StackLayout HorizontalOptions="StartAndExpand">
-                            <Label Text="{Binding StartAt}" FontSize="18"></Label>
-                            <Label Text="{Binding Language}" FontSize="15"></Label>
+                            <Label Text="{Binding StartTime}" FontSize="20"></Label>
+                            <Label Text="{Binding Language, StringFormat='Language: {0}'}" FontSize="15"></Label>
                         </StackLayout>
 
                         <Image Source="{local:EmbeddedImage CineFy.Images.ThreeD.png}"
