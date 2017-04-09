@@ -12,7 +12,14 @@
                     <StackLayout Orientation="Horizontal" Padding="5">
                         <Image Source="{Binding PosterImageThumbnail }"
                                    WidthRequest="100" HeightRequest="100" Aspect="AspectFit"></Image>
-                        <Label Text="{Binding Title}" FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Label>
+
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding Title}" FontSize="20" VerticalOptions="Center" ></Label>
+                            <Button Text="More Info" HorizontalOptions="Start"
+                                        Command="{Binding Source={x:Reference Page}, Path=BindingContext.OnInfoButtonTapped}"
+                                        CommandParameter="{Binding .}"></Button>
+                        </StackLayout>
+                        
 
                     </StackLayout>
                 </ViewCell>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using CineFy.Entities;
 using CineFy.Services;
 using Xamarin.Forms;
@@ -65,6 +66,18 @@ namespace CineFy.Pages
         {
             Navigation.PopAsync();
             return true;
+        }
+
+        public ICommand OnInfoButtonTapped
+        {
+            get
+            {
+                return new Command<Movie>(movie =>
+                    {
+                        Navigation.PushAsync(new MovieInfoPage(movie));
+                    }
+                );
+            }
         }
     }
 }

@@ -49,6 +49,9 @@
     <Compile Include="Pages\CinemasPage.xaml.cs">
       <DependentUpon>CinemasPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MovieInfoPage.xaml.cs">
+      <DependentUpon>MovieInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MoviesPage.xaml.cs">
       <DependentUpon>MoviesPage.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\globe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MovieInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

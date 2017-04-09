@@ -203,5 +203,9 @@ namespace CineFy.Entities
 
         [JsonProperty("character")]
         public string Character { get; set; }
+
+        public string CharacterInMovie {
+            get { return $"{Name} as {Character}"; }
+        }
     }
 }
