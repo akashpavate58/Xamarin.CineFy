@@ -4,8 +4,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:markupExtensions="clr-namespace:CineFy.MarkupExtensions;assembly=CineFy"
              x:Class="CineFy.Pages.CinemaInfoPage"
-             x:Name="Page">
-    <StackLayout>
+             x:Name="Page"
+             BackgroundColor="#F9FBE7">
+    
+    <StackLayout Padding="5">
         
         <Label Text="{Binding Cinema.Name, StringFormat='{0}'}"
            FontSize="30" HorizontalOptions="Center" TextColor="Maroon"></Label>

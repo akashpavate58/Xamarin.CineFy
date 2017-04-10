@@ -4,9 +4,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CineFy.MarkupExtensions;assembly=CineFy"
              x:Class="CineFy.Pages.CinemasPage"
-             x:Name="Page">
+             x:Name="Page"
+             BackgroundColor="#F9FBE7">
 
-    <StackLayout>
+    <StackLayout Padding="5">
 
         <Label Text="{Binding Source={x:Reference Slider}, Path=Value, StringFormat='{0:N0} mi'}" HorizontalTextAlignment="Center"></Label>
         

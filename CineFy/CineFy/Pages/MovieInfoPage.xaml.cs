@@ -18,7 +18,15 @@ namespace CineFy.Pages
         public string IMDBRating {
             get
             {
-                return Movie.Ratings["imdb"].Value.ToString();
+                try
+                {
+                    var rating = Movie.Ratings["imdb"]?.Value.ToString();
+                    return rating;
+                }
+                catch (Exception E)
+                {
+                    return "Not Available";
+                }
             }
         }
         public MovieInfoPage(Movie movie)
@@ -27,6 +35,11 @@ namespace CineFy.Pages
             Movie = movie;
             castListView.ItemsSource = new ObservableCollection<Person>(Movie.Cast);
             BindingContext = this;
+        }
+
+        private void CastListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            castListView.SelectedItem = null;
         }
     }
 }

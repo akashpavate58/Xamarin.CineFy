@@ -3,11 +3,12 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CineFy.Pages.MovieInfoPage"
-             x:Name="Page">
-    <StackLayout >
+             x:Name="Page"
+             BackgroundColor="#F9FBE7">
+    <StackLayout Padding="5">
         
         <Image x:Name="Image" Source="{Binding Movie.PosterImage.ImageFiles[3].URL}"
-               HorizontalOptions="Center"></Image>
+               HorizontalOptions="Center" ></Image>
         
         <Label Text="{Binding Movie.Title}" 
                FontSize="25" TextColor="Maroon" HorizontalOptions="Center"></Label>
@@ -16,7 +17,7 @@
                FontSize="18" HorizontalOptions="Center"></Label>
 
         <Label Text="Cast:" FontSize="18"></Label>
-        <ListView x:Name="castListView">
+        <ListView x:Name="castListView" ItemSelected="CastListView_OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding CharacterInMovie}"></TextCell>

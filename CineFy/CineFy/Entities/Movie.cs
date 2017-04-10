@@ -205,7 +205,15 @@ namespace CineFy.Entities
         public string Character { get; set; }
 
         public string CharacterInMovie {
-            get { return $"{Name} as {Character}"; }
+            get
+            {
+                if(!string.IsNullOrWhiteSpace(Name)  && !string.IsNullOrWhiteSpace(Character))
+                    return $"{Name} as {Character}";
+                else if (!string.IsNullOrWhiteSpace(Name))
+                    return Name;
+                else
+                    return "Unknown";
+            }
         }
     }
 }

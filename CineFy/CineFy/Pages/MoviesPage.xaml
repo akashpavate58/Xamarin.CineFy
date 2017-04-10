@@ -3,27 +3,33 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CineFy.Pages.MoviesPage"
-             x:Name="Page">
+             x:Name="Page"
+             BackgroundColor="#F9FBE7">
 
-    <ListView x:Name="moviesListView" HasUnevenRows="True" ItemSelected="CinemasListView_OnItemSelected" ItemTapped="MoviesListView_OnItemTapped" >
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="5">
-                        <Image Source="{Binding PosterImageThumbnail }"
+    <StackLayout Padding="5">
+        
+        <ListView x:Name="moviesListView" HasUnevenRows="True" 
+              ItemSelected="CinemasListView_OnItemSelected" ItemTapped="MoviesListView_OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="{Binding PosterImageThumbnail }"
                                    WidthRequest="100" HeightRequest="100" Aspect="AspectFit"></Image>
 
-                        <StackLayout HorizontalOptions="StartAndExpand">
-                            <Label Text="{Binding Title}" FontSize="20" VerticalOptions="Center" ></Label>
-                            <Button Text="More Info" HorizontalOptions="Start"
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Title}" FontSize="20" VerticalOptions="Center" ></Label>
+                                <Button Text="More Info" HorizontalOptions="Start"
                                         Command="{Binding Source={x:Reference Page}, Path=BindingContext.OnInfoButtonTapped}"
                                         CommandParameter="{Binding .}"></Button>
-                        </StackLayout>
-                        
+                            </StackLayout>
 
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
 </ContentPage>

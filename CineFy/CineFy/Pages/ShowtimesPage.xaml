@@ -4,26 +4,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CineFy.MarkupExtensions;assembly=CineFy"
              x:Class="CineFy.Pages.ShowtimesPage"
-             x:Name="Page">
+             x:Name="Page"
+             BackgroundColor="#F9FBE7">
 
-    <ListView x:Name="showtimesListView" HasUnevenRows="True" ItemSelected="ShowtimeListView_OnItemSelected" >
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="5">
+    <StackLayout Padding="5">
+        
+        <ListView x:Name="showtimesListView" HasUnevenRows="True" ItemSelected="ShowtimeListView_OnItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
 
 
-                        <StackLayout HorizontalOptions="StartAndExpand">
-                            <Label Text="{Binding StartTime}" FontSize="20"></Label>
-                            <Label Text="{Binding Language, StringFormat='Language: {0}'}" FontSize="15"></Label>
-                        </StackLayout>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding StartTime}" FontSize="20"></Label>
+                                <Label Text="{Binding Language, StringFormat='Language: {0}'}" FontSize="15"></Label>
+                            </StackLayout>
 
-                        <Image Source="{local:EmbeddedImage CineFy.Images.ThreeD.png}"
+                            <Image Source="{local:EmbeddedImage CineFy.Images.ThreeD.png}"
                                IsVisible="{Binding Is3D}"
                                WidthRequest="30" HeightRequest="30" Aspect="AspectFit"></Image>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
 </ContentPage>
