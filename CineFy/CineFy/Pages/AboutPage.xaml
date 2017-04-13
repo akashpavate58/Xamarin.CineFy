@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="About Developers"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CineFy.MarkupExtensions;assembly=CineFy"
+             x:Class="CineFy.Pages.AboutPage"
+             x:Name="Page"
+             BackgroundColor="#F9FBE7">
+
+    <Grid>
+
+        <StackLayout Grid.Row="0" Grid.Column="0">
+
+            <Image Source="{local:EmbeddedImage CineFy.Images.akash.png}"
+                   HorizontalOptions="Center" VerticalOptions="CenterAndExpand"></Image>
+
+            <Label Text="Akash Pavate"
+               FontSize="25" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+        </StackLayout>
+
+        <StackLayout Grid.Row="0" Grid.Column="1">
+
+            <Image Source="{local:EmbeddedImage CineFy.Images.shashank.png}"
+                   HorizontalOptions="Center" VerticalOptions="CenterAndExpand"></Image>
+
+            <Label Text="Shashank S"
+               FontSize="25" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+        </StackLayout>
+        
+        <StackLayout Grid.Row="1" Grid.Column="0">
+
+            <Image Source="{local:EmbeddedImage CineFy.Images.heena.png}"
+                   HorizontalOptions="Center" VerticalOptions="CenterAndExpand"></Image>
+
+            <Label Text="Heena Ali Mulla"
+               FontSize="25" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" Grid.Column="1">
+
+            <Image Source="{local:EmbeddedImage CineFy.Images.vikas.png}"
+                   HorizontalOptions="Center" VerticalOptions="CenterAndExpand"></Image>
+
+            <Label Text="Vikas Rajendra"
+               FontSize="25" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

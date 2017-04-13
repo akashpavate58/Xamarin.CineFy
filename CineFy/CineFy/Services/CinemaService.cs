@@ -18,7 +18,7 @@ namespace CineFy.Services
 
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Token token=cvudNN9dpN7WQzpuf1uW6GpiWO4UDx8M");
+                client.DefaultRequestHeaders.Add("Authorization", "Token token=kLX96klXdgMYefir77EqQH8wtXGJdFjK");
 
                 string url = URL + $"/cinemas/?location={latitude},{longitude}&distance={radius}";
 
