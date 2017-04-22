@@ -12,13 +12,14 @@ namespace CineFy.Services
     public class CinemaService
     {
         private const string URL = "https://api.internationalshowtimes.com/v4";
+        private const string token = "kLX96klXdgMYefir77EqQH8wtXGJdFjK";
 
         public async Task<IEnumerable<Cinema>> GetCinemas(double latitude, double longitude, int radius)
         {
 
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Token token=kLX96klXdgMYefir77EqQH8wtXGJdFjK");
+                client.DefaultRequestHeaders.Add("Authorization", $"Token token={token}");
 
                 string url = URL + $"/cinemas/?location={latitude},{longitude}&distance={radius}";
 
@@ -35,7 +36,7 @@ namespace CineFy.Services
 
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Token token=cvudNN9dpN7WQzpuf1uW6GpiWO4UDx8M");
+                client.DefaultRequestHeaders.Add("Authorization", $"Token token={token}");
 
                 string url = URL + $"/movies/?cinema_id={CinemaId}&all_fields=true";
 
@@ -52,7 +53,7 @@ namespace CineFy.Services
 
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Token token=cvudNN9dpN7WQzpuf1uW6GpiWO4UDx8M");
+                client.DefaultRequestHeaders.Add("Authorization", $"Token token={token}");
 
                 string url = URL + $"/showtimes/?cinema_id={CinemaId}&movie_id={MovieId}";
 

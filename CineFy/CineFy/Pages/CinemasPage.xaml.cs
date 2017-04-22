@@ -51,6 +51,10 @@ namespace CineFy.Pages
                 await DisplayAlert("Error", "Please enable the location service.", "Exit");
                 AppControls.CloseApp();
             }
+            catch (TaskCanceledException E)
+            {
+                await DisplayAlert("Oops..!!", "Unable to find your location. Please try again.", "Ok");
+            }
             catch (Exception E)
             {
                 await DisplayAlert("Error", $"{E} - {E.Message}", "Exit");

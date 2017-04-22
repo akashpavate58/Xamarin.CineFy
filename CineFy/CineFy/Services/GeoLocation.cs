@@ -16,7 +16,7 @@ namespace CineFy.Services
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
-
+            
             var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
 
             return position;
